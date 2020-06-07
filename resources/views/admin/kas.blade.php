@@ -14,7 +14,12 @@
                 Tabel Transaksi
             </div>
             <div class="panel-body">
-                <div class="table-responsive">
+                <a href="{{route('Kas.create')}}"><button type="submit" class="btn btn-outline btn-success btn-sm" ><img src="{{asset('assets/img/create.png')}}" alt="" />Create</button></a>    
+                <form action="carikas" method="GET" class="col-md-11 col-form-label">
+                <input type="text" name="cari" placeholder="Search ..." value="{{ old('cari') }}">
+                <input type="submit" value="Cari">
+                </form>
+                    <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr >
@@ -26,8 +31,7 @@
                                 <th class="text-center">Debet</th>
                                 <th class="text-center">Kredit</th>
                                 <th class="text-center">Saldo</th>
-                                <th class="text-center" colspan="2">Aksi</th>
-                                
+                                <th class="text-center" colspan="2">Aksi</th>                      
                             </tr>
                         </thead>
                         <tbody>
@@ -41,6 +45,17 @@
                                 <td class="text-center">{{$val->debet}}</td>
                                 <td class="text-center">{{$val->kredit}}</td>
                                 <td class="text-center">{{$val->saldo}}</td>
+                                <td class="text-center">
+                                    <a href="{{route('Kas.edit',$val->id_kas)}}"><button type="submit" class="btn btn-outline btn-info btn-sm"><img src="{{asset('assets/img/update.png')}}" alt="" />Update</button></a>
+                                </td>
+                                <td class="text-center">
+                                    <form action="{{route('Kas.destroy',$val->id_kas)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-outline btn-danger btn-sm"><img src="{{asset('assets/img/delete.png')}}" alt="" />Delete</button>
+                                    </form>
+                                </td>
+          
                                 
                             </tr>
                             @endforeach

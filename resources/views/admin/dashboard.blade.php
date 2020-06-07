@@ -3,26 +3,29 @@
 <div class="row">
     <!-- Page Header -->
     <div class="col-lg-12">
-        <h1 class="page-header">Dashboard</h1>
+        <marquee behavior="" direction="" style="font-size: 19px; color: green;">Selamat Datang Di Sigapoktan Panca Winangun Kelurahan Sukasada</marquee>
+        <h1>Dashboard</h1>
+        <h4>Selamat Datang {{ Auth::user()->name }}<b></b></h4>
     </div>   <!--End Page Header -->
 </div>  
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                Rincian Sistem:
+                Organisasi dan Keanggotaan Gapoktan
             </div>
             <div class="panel-body">
                 <div class="col-lg-6">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Biodata Diri
+                            Susunan Pengurus Gapoktan Panca Winangun
                         </div>
                         <div class="panel-body">
-                            <p style="line-height: 40px;">
-                                Nama &nbsp;         : Mario Martin Da Silva <br>
-                                NIM &nbsp;          : 1815051088 <br>
-                                Program Studi &nbsp;: Pendidikan Teknik Informatika
+                            <p style="line-height: 35px; padding-left: 125px;">
+                                Ketua &emsp;&emsp;&emsp;&emsp;&emsp;: Ketut Putra Nadi <br>
+                                Wakil Ketua &emsp;&emsp;&nbsp;: Made Oka Rai <br>
+                                Sekretaris &emsp;&emsp;&emsp;: Komang Darmada<br>
+                                Bendahara &emsp;&emsp;&nbsp;&nbsp;: I Gede Sutama
                             </p>
                         </div> 
                     </div>
@@ -30,12 +33,88 @@
                 <div class="col-lg-6">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Studi Kasus
+                            Komite Pengarah
                         </div>
                         <div class="panel-body">
-                            <p style="line-height: 40px;">
-                                Judul &nbsp;     : Sistem Informasi Kelompok Tani (SIGAPOKTAN) <br>
-                                Penjelasan &nbsp;: SIGAPOKTAN merupakan sebuah website yang memfasilitasi para gapoktan 
+                            <p style="line-height: 47px;  padding-left: 140px;">
+                                1. Lurah Sukasada <br>
+                                2. Tokoh Masyarakat <br>
+                                3, PPL Wilbin Kelurahan Sukasada
+                            </p>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                  <!--   Kitchen Sink -->
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Kelompok Tani
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Nama Poktan</th>
+                                            <th class="text-center">Jumlah Anggota</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td>Kelompok Subak Yeh Jero</td>
+                                            <td class="text-center">78</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td>Kelompok Subak Anyar Lapang</td>
+                                            <td class="text-center">57</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td>Kelompok Subak Yeh Batu</td>
+                                            <td class="text-center">43</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">4</td>
+                                            <td>Kelompok Subak Lawas</td>
+                                            <td class="text-center">59</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">5</td>
+                                            <td>Kelompok Subak Timbul</td>
+                                            <td class="text-center">15</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">6</td>
+                                            <td>Kelompok Subak Tembau</td>
+                                            <td class="text-center">29</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel-footer">Jumlah anggota sebanyak 281 orang</div>
+                    </div>
+                     <!-- End  Kitchen Sink -->
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Pengelola Dana PUAP
+                        </div>
+                        <div class="panel-body">
+                            <p style="line-height: 38px;  padding-left: 100px;">
+                                Petugas Pungut : Nyoman Ginanta<br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Putu Pacung <br>
+                                6 Orang Ketua Poktan : Subak Anyar Lapang<br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Subak Yeh Jero <br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Subak Yeh Lawas <br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Subak Yeh Batu <br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Subak Tembau <br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Subak Timbul
+                                
                             </p>
                         </div>  
                     </div>

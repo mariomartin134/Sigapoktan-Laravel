@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Kas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class KasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function($request, $next){
+            if(Gate::allows('admin')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +32,26 @@ class KasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    	// mengambil data dari table peminjaman sesuai pencarian data
+        $Kas=Kas::where('id_kas','like',"%".$cari."%")->paginate(5);
+ 
+        // mengirim data pegawai ke view index
+        $title='Kas';
+        return view('admin.kas', compact('title','Kas'));
+    }
+
     public function create()
     {
-        //
+        {
+            $title='Input Kas';
+            return view('admin.inputkas', compact('title'));
+        }
     }
 
     /**
@@ -37,7 +62,22 @@ class KasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required'=> 'kolom :attribute harus lengkap',
+            'date'    => 'kolom :attribute harus tanggal',
+            'numeric' => 'kolom :attribute harus angka',
+        ];
+        $validasi = $request->validate([
+            'id_kas'=>'required',
+            'id_pengelola'=>'required',
+            'tgl'=>'date',
+            'uraian'=>'required',
+            'debet'=>'required',
+            'kredit'=>'required',
+            'saldo'=>'required',
+        ],$messages);
+        Kas::create($validasi);
+        return redirect('Kas')->with('success','data berhasil di update');
     }
 
     /**
@@ -59,7 +99,9 @@ class KasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title='Edit Kas';
+        $Kas=Kas::find($id);
+        return view('admin.inputkas', compact('title','Kas'));
     }
 
     /**
@@ -71,7 +113,22 @@ class KasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $messages = [
+            'required'=> 'kolom :attribute harus lengkap',
+            'date'    => 'kolom :attribute harus tanggal',
+            'numeric' => 'kolom :attribute harus angka',
+        ];
+        $validasi = $request->validate([
+            'id_kas'=>'required',
+            'id_pengelola'=>'required',
+            'tgl'=>'date',
+            'uraian'=>'required',
+            'debet'=>'required',
+            'kredit'=>'required',
+            'saldo'=>'required',
+        ],$messages);
+        Kas::whereid_kas($id)->update($validasi);
+        return redirect('Kas')->with('success','data berhasil di Update');
     }
 
     /**
@@ -82,6 +139,7 @@ class KasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kas::whereid_kas($id)->delete();
+        return redirect('Kas')->with('success','data berhasil di Hapus');
     }
 }

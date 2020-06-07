@@ -28,12 +28,29 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="{{asset('assets/img/sibak.png')}}" alt="" />
+                    <img src="{{asset('assets/img/sigapoktan.png')}}" alt="" />
                 </a>
             </div>
             <!-- end navbar-header -->
             <!-- navbar-top-links -->
-            
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- main dropdown -->
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
                 </li>
                 <!-- end main dropdown -->
             </ul>
@@ -51,10 +68,10 @@
                         <!-- user image section-->
                         <div class="user-section">
                             <div class="user-section-inner">
-                                <img src="{{asset('assets/img/user.jpg')}}" alt="">
+                                <img src="{{asset('assets/img/user1.png')}}" alt="">
                             </div>
                             <div class="user-info">
-                                <div>Mario <strong>Martin</strong></div>
+                                <div><strong>Sigapoktan</strong></div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
@@ -62,58 +79,49 @@
                         </div>
                         <!--end user image section-->
                     </li>
-                    <li class="sidebar-search">
-                        <!-- search section-->
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        <!--end search section-->
-                    </li>
-                    <li class="selected">
+                    <li>
                         <a href="{{route('Dashboard.index')}}"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-flask fa-fw"></i>Manajemen Transaksi<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-table fa-fw"></i>Pinjaman & Kembalian Dana<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('transaksi.index')}}">Daftar Transaksi</a>
+                            <li class="selected">
+                                <a href="{{route('peminjaman.index')}}">Peminjaman Dana PUAP</a>
                             </li>
                             <li>
-                                <a href="{{route('Kas.index')}}">Daftar Kas Dana Puap</a>
+                                <a href="{{route('pengembalian.index')}}">Pengembalian Dana PUAP</a>
+                            </li>
+                        </ul>
+                        <!-- second-level-items -->
+                    <li>
+                        <a href="#"><i class="fa fa-edit fa-fw"></i>Transaksi $ Kas Dana<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{route('transaksi.index')}}">Transaksi</a>
+                            </li>
+                            <li>
+                                <a href="{{route('Kas.index')}}">Kas Dana PUAP</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Manajemen Anggota<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Referensi<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Anggota</a>
+                                <a href="{{route('Poktan.index')}}">Data Poktan</a>
                             </li>
                             <li>
-                                <a href="#">Pengelola</a>
+                                <a href="{{route('Pengelola.index')}}">Pengelola</a>
                             </li>
                             <li>
-                                <a href="#">POKTAN</a>
+                                <a href="{{route('Anggota.index')}}">Data Anggota</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->
                     </li>
                     <li>
-                    <a href="#"><i class="fa fa-table fa-fw"></i>Manajemen Peminjaman<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Peminjaman</a>
-                            </li>
-                            <li>
-                                <a href="#">Pengembalian</a>
-                            </li>
-                        </ul>
+                    
                         <!-- second-level-items -->
                     </li>
                         <!-- second-level-items -->

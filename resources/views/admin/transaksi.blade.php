@@ -14,7 +14,11 @@
                 Tabel Transaksi
             </div>
             <div class="panel-body">
-                <div class="table-responsive">
+                <form action="caritransaksi" method="GET" class="col-md-11 col-form-label">
+                <input type="text" name="cari" placeholder="Search ..." value="{{ old('cari') }}">
+                <input type="submit" value="Cari">
+                </form>
+                    <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr >
@@ -25,7 +29,7 @@
                                 <th class="text-center">Debet</th>
                                 <th class="text-center">Kredit</th>
                                 <th class="text-center">Perihal</th>
-                                <th class="text-center" colspan="2">Aksi</th>
+                                
                                 
                             </tr>
                         </thead>
@@ -39,6 +43,7 @@
                                 <td class="text-center">{{$val->debet}}</td>
                                 <td class="text-center">{{$val->kredit}}</td>
                                 <td class="text-center">{{$val->prihal}}</td>
+                            
                                 
                             </tr>
                             @endforeach

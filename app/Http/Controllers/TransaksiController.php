@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class TransaksiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function($request, $next){
+            if(Gate::allows('admin')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +32,26 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    	// mengambil data dari table peminjaman sesuai pencarian data
+        $Transaksi=Transaksi::where('id_transaksi','like',"%".$cari."%")->paginate(5);
+ 
+        // mengirim data pegawai ke view 
+        $title='Transaksi';
+        return view('admin.transaksi', compact('title','Transaksi'));
+    }
+    
     public function create()
     {
-        //
+        {
+            $title='Input Transaksi';
+            return view('admin.inputtransaksi', compact('title'));
+        }
     }
 
     /**
@@ -37,7 +62,21 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required'=> 'kolom :attribute harus lengkap',
+            'date'    => 'kolom :attribute harus tanggal',
+            'numeric' => 'kolom :attribute harus angka',
+        ];
+        $validasi = $request->validate([
+            'id_transaksi'=>'required',
+            'id_pengelola'=>'required',
+            'tgl'=>'date',
+            'debet'=>'required',
+            'kredit'=>'required',
+            'prihal'=>'required',
+        ],$messages);
+        Transaksi::create($validasi);
+        return redirect('transaksi')->with('success','data berhasil di update');
     }
 
     /**
@@ -59,7 +98,9 @@ class TransaksiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title='Edit Transaksi';
+        $Transaksi=Transaksi::find($id);
+        return view('admin.inputtransaksi', compact('title','Transaksi'));
     }
 
     /**
@@ -71,7 +112,21 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $messages = [
+            'required'=> 'kolom :attribute harus lengkap',
+            'date'    => 'kolom :attribute harus tanggal',
+            'numeric' => 'kolom :attribute harus angka',
+        ];
+        $validasi = $request->validate([
+            'id_transaksi'=>'required',
+            'id_pengelola'=>'required',
+            'tgl'=>'date',
+            'debet'=>'required',
+            'kredit'=>'required',
+            'prihal'=>'required',
+        ],$messages);
+        Transaksi::whereid_transaksi($id)->update($validasi);
+        return redirect('transaksi')->with('success','data berhasil di update');
     }
 
     /**
@@ -82,6 +137,7 @@ class TransaksiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Transaksi::whereid_transaksi($id)->delete();
+        return redirect('transaksi')->with('success','data berhasil di update');
     }
 }
