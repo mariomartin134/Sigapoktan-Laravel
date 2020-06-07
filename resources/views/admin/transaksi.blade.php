@@ -14,6 +14,7 @@
                 Tabel Transaksi
             </div>
             <div class="panel-body">
+            <a href="{{route('transaksi.create')}}"><button type="submit" class="btn btn-outline btn-success btn-sm" ><img src="{{asset('assets/img/create.png')}}" alt="" />Create</button></a>
                 <form action="caritransaksi" method="GET" class="col-md-11 col-form-label">
                 <input type="text" name="cari" placeholder="Search ..." value="{{ old('cari') }}">
                 <input type="submit" value="Cari">
@@ -29,7 +30,7 @@
                                 <th class="text-center">Debet</th>
                                 <th class="text-center">Kredit</th>
                                 <th class="text-center">Perihal</th>
-                                
+                                <th class="text-center" colspan="2">Aksi</th>
                                 
                             </tr>
                         </thead>
@@ -43,8 +44,16 @@
                                 <td class="text-center">{{$val->debet}}</td>
                                 <td class="text-center">{{$val->kredit}}</td>
                                 <td class="text-center">{{$val->prihal}}</td>
-                            
-                                
+                                <td class="text-center">
+                                <a href="{{route('transaksi.edit',$val->id_transaksi)}}"><button type="submit" class="btn btn-outline btn-info btn-sm"><img src="{{asset('assets/img/update.png')}}" alt="" />Update</button></a>
+                                </td>
+                                <td class="text-center">
+                                    <form action="{{route('transaksi.destroy',$val->id_transaksi)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-outline btn-danger btn-sm"><img src="{{asset('assets/img/delete.png')}}" alt="" />Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

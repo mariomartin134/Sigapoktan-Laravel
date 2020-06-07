@@ -27,8 +27,7 @@
                                 <th class="text-center">ID Poktan</th>
                                 <th class="text-center">Nama Poktan</th>
                                 <th class="text-center">Alamat</th>
-                                <th class="text-center" colspan="2">Aksi</th>
-                                
+                                <th class="text-center" colspan="2">Aksi</th>    
                             </tr>
                         </thead>
                         <tbody>
