@@ -19,8 +19,13 @@
                             @csrf 
                             @if(isset($peminjaman))?@method('PUT')@endif
                             <div class="form-group">
+                                <label>No Invoice</label>
+                                <input type="text" value="{{(isset($peminjaman))?$peminjaman->no_invoice:old('no_invoice')}}" name="no_invoice" class="form-control">
+                                @error('no_invoice')<small style="color:red">{{$message}}</small>@enderror
+                            </div>
+                            <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" value="{{(isset($peminjaman))?$peminjaman->tgl:old('tgl')}}" name="tgl" class="form-control">
+                                <input type="date" value="{{(isset($peminjaman))?$peminjaman->tgl:old('tgl')}}" name="tgl" class="form-control">
                                 @error('tgl')<small style="color:red">{{$message}}</small>@enderror
                             </div>
                             <div class="form-group">

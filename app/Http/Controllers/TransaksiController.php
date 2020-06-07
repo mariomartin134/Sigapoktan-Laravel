@@ -68,7 +68,6 @@ class TransaksiController extends Controller
             'numeric' => 'kolom :attribute harus angka',
         ];
         $validasi = $request->validate([
-            'id_transaksi'=>'required',
             'id_pengelola'=>'required',
             'tgl'=>'date',
             'debet'=>'required',
@@ -118,7 +117,6 @@ class TransaksiController extends Controller
             'numeric' => 'kolom :attribute harus angka',
         ];
         $validasi = $request->validate([
-            'id_transaksi'=>'required',
             'id_pengelola'=>'required',
             'tgl'=>'date',
             'debet'=>'required',

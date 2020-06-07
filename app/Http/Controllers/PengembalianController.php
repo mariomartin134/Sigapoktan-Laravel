@@ -67,6 +67,7 @@ class PengembalianController extends Controller
             'numeric' => 'kolom :attribute harus angka',
         ];
         $validasi = $request->validate([
+            'no_invoice'=>'required',
             'id_pinjam'=>'required',
             'id_pengelola'=>'required',
             'pokok'=>'required',
@@ -122,6 +123,7 @@ class PengembalianController extends Controller
             'numeric' => 'kolom :attribute harus angka',
         ];
         $validasi = $request->validate([
+            'no_invoice'=>'required',
             'id_pinjam'=>'required',
             'id_pengelola'=>'required',
             'pokok'=>'required',

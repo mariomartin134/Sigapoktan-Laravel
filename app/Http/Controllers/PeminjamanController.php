@@ -26,12 +26,7 @@ class PeminjamanController extends Controller
         $peminjaman=Peminjaman::paginate(5);
         return view('admin.peminjaman', compact('title','peminjaman'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function cari(Request $request)
 	{
 		// menangkap data pencarian
@@ -40,11 +35,15 @@ class PeminjamanController extends Controller
     	// mengambil data dari table peminjaman sesuai pencarian data
         $peminjaman=Peminjaman::where('id_pinjam','like',"%".$cari."%")->paginate(5);
  
-        // mengirim data pegawai ke view index
-        $title='Peminjaman';
+    	// mengirim data pegawai ke view index
         return view('admin.peminjaman', compact('title','peminjaman'));
-    }
-    
+	}
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         $title='Input Peminjaman';
@@ -65,6 +64,7 @@ class PeminjamanController extends Controller
             'numeric' => 'kolom :attribute harus angka',
         ];
         $validasi = $request->validate([
+            'no_invoice'=>'required',
             'tgl'=>'date',
             'id_pengelola'=>'required',
             'id_anggota'=>'required',
@@ -116,6 +116,7 @@ class PeminjamanController extends Controller
             'numeric' => 'kolom :attribute harus angka',
         ];
         $validasi = $request->validate([
+            'no_invoice'=>'required',
             'tgl'=>'date',
             'id_pengelola'=>'required',
             'id_anggota'=>'required',

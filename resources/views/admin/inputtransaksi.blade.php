@@ -19,11 +19,6 @@
                             @csrf 
                             @if(isset($Transaksi))?@method('PUT')@endif
                             <div class="form-group">
-                                <label>ID Transaksi</label>
-                                <input type="text" value="{{(isset($Transaksi))?$Transaksi->id_transaksi:old('id_transaksi')}}" name="id_transaksi" class="form-control">
-                                @error('id_transaksi')<small style="color:red">{{$message}}</small>@enderror
-                            </div>
-                            <div class="form-group">
                                 <label>Id Pengelola</label>
                                 <input type="text" value="{{(isset($Transaksi))?$Transaksi->id_pengelola:old('id_pengelola')}}" name="id_pengelola" class="form-control">
                                 @error('id_pengelola')<small style="color:red">{{$message}}</small>@enderror

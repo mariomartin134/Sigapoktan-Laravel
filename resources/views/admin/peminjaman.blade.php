@@ -18,13 +18,14 @@
             <form action="caripinjam" method="GET" class="col-md-11 col-form-label">
                 <input type="text" name="cari" placeholder="Search ..." value="{{ old('cari') }}">
                 <input type="submit" value="Cari">
-            </form>
+            </form>    
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr >
                                 <th class="text-center">No</th>
-                                <th class="text-center">ID Pinjam</th>
+                                <th class="text-center">Id Pinjam</th>
+                                <th class="text-center">Invoice</th>
                                 <th class="text-center">Tanggal</th>
                                 <th class="text-center">Id Pengelola</th>
                                 <th class="text-center">Id Anggota</th>
@@ -40,6 +41,7 @@
                             <tr>
                                 <td class="text-center">{{$in+1}}</td>
                                 <td class="text-center">{{$val->id_pinjam}}</td>
+                                <td class="text-center">{{$val->no_invoice}}</td>
                                 <td class="text-center">{{$val->tgl}}</td>
                                 <td class="text-center">{{$val->id_pengelola}}</td>
                                 <td class="text-center">{{$val->id_anggota}}</td>

@@ -19,6 +19,11 @@
                             @csrf 
                             @if(isset($pengembalian))?@method('PUT')@endif
                             <div class="form-group">
+                                <label>No Invoice</label>
+                                <input type="text" value="{{(isset($pengembalian))?$pengembalian->no_invoice:old('no_invoice')}}" name="no_invoice" class="form-control">
+                                @error('no_invoice')<small style="color:red">{{$message}}</small>@enderror
+                            </div>
+                            <div class="form-group">
                                 <label>Id Peminjaman</label>
                                 <input type="text" value="{{(isset($pengembalian))?$pengembalian->id_pinjam:old('id_pinjam')}}" name="id_pinjam" class="form-control">
                                 @error('id_pinjam')<small style="color:red">{{$message}}</small>@enderror
