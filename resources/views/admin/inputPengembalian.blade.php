@@ -60,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" value="{{(isset($pengembalian))?$pengembalian->tgl_bayar:old('tgl_bayar')}}" name="tgl_bayar" class="form-control">
+                                <input type="date" value="{{(isset($pengembalian))?$pengembalian->tgl_bayar:old('tgl_bayar')}}" name="tgl_bayar" class="form-control">
                                 @error('tgl_bayar')<small style="color:red">{{$message}}</small>@enderror
                             </div>
                             <div class="form-group">

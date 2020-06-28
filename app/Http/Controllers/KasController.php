@@ -11,7 +11,7 @@ class KasController extends Controller
     public function __construct()
     {
         $this->middleware(function($request, $next){
-            if(Gate::allows('admin')) return $next($request);
+            if(Gate::allows('pengelola')) return $next($request);
             abort(403, 'Anda tidak memiliki cukup hak akses');
         });
     }

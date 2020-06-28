@@ -21,7 +21,7 @@
                             Susunan Pengurus Gapoktan Panca Winangun
                         </div>
                         <div class="panel-body">
-                            <p style="line-height: 35px; padding-left: 125px;">
+                            <p style="line-height: 35px; padding-left: 14px;">
                                 Ketua &emsp;&emsp;&emsp;&emsp;&emsp;: Ketut Putra Nadi <br>
                                 Wakil Ketua &emsp;&emsp;&nbsp;: Made Oka Rai <br>
                                 Sekretaris &emsp;&emsp;&emsp;: Komang Darmada<br>
@@ -36,7 +36,7 @@
                             Komite Pengarah
                         </div>
                         <div class="panel-body">
-                            <p style="line-height: 47px;  padding-left: 140px;">
+                            <p style="line-height: 47px;  padding-left: 14px;">
                                 1. Lurah Sukasada <br>
                                 2. Tokoh Masyarakat <br>
                                 3, PPL Wilbin Kelurahan Sukasada
@@ -105,10 +105,10 @@
                             Pengelola Dana PUAP
                         </div>
                         <div class="panel-body">
-                            <p style="line-height: 38px;  padding-left: 100px;">
-                                Petugas Pungut : Nyoman Ginanta<br>
-                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Putu Pacung <br>
-                                6 Orang Ketua Poktan : Subak Anyar Lapang<br>
+                            <p style="line-height: 38px;  padding-left: 14px;">
+                                Petugas Pungut &emsp;&emsp;&emsp;: Nyoman Ginanta<br>
+                                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Putu Pacung <br>
+                                Ketua Poktan  &emsp;&emsp;&emsp;&emsp; : Subak Anyar Lapang<br>
                                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Subak Yeh Jero <br>
                                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Subak Yeh Lawas <br>
                                 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Subak Yeh Batu <br>

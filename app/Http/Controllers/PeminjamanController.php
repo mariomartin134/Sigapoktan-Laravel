@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Peminjaman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PeminjamanController extends Controller
 {
@@ -24,6 +25,7 @@ class PeminjamanController extends Controller
     {
         $title='Peminjaman';
         $peminjaman=Peminjaman::paginate(5);
+        Alert::success('Success Title', 'Success Message');
         return view('admin.peminjaman', compact('title','peminjaman'));
     }
     
@@ -47,6 +49,7 @@ class PeminjamanController extends Controller
     public function create()
     {
         $title='Input Peminjaman';
+        Alert::success('Success Title', 'Success Message');
         return view('admin.inputPeminjaman', compact('title'));
     }
 

@@ -11,7 +11,7 @@ class PengembalianController extends Controller
     public function __construct()
     {
         $this->middleware(function($request, $next){
-            if(Gate::allows('pengelola')) return $next($request);
+            if(Gate::allows('admin')) return $next($request);
             abort(403, 'Anda tidak memiliki cukup hak akses');
         });
     }
@@ -75,7 +75,7 @@ class PengembalianController extends Controller
             'lama_bulan'=>'required',
             'biaya_adm'=>'required',
             'tunggakan'=>'required',
-            'tgl_bayar'=>'required',
+            'tgl_bayar'=>'date',
             'wuku'=>'required',
             'jumlah_bayar'=>'required',
             'keterangan'=>''
@@ -131,7 +131,7 @@ class PengembalianController extends Controller
             'lama_bulan'=>'required',
             'biaya_adm'=>'required',
             'tunggakan'=>'required',
-            'tgl_bayar'=>'required',
+            'tgl_bayar'=>'date',
             'wuku'=>'required',
             'jumlah_bayar'=>'required',
             'keterangan'=>''
@@ -149,6 +149,6 @@ class PengembalianController extends Controller
     public function destroy($id)
     {
         Pengembalian::whereid_kembali($id)->delete();
-        return redirect('pengembalian')->with('success','data berhasil di update');
+        return redirect('pengembalian')->with('success','data berhasil di hapus');
     }
 }

@@ -25,7 +25,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" value="{{(isset($Transaksi))?$Transaksi->tgl:old('tgl')}}" name="tgl" class="form-control">
+                                <input type="date" value="{{(isset($Transaksi))?$Transaksi->tgl:old('tgl')}}" name="tgl" class="form-control">
                                 @error('tgl')<small style="color:red">{{$message}}</small>@enderror
                             </div>
                             <div class="form-group">
